@@ -10,8 +10,8 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 //static const int vertpad            = 10;       /* vertical padding of bar */
 //static const int sidepad            = 15;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Droid Sans Mono:size=12" };
-static const char dmenufont[]       = "Droid Sans Mono:size=12";
+static const char *fonts[]          = { "Droid Sans Mono:size=14" };
+static const char dmenufont[]       = "Droid Sans Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -22,7 +22,8 @@ static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-	[SchemeSel]  = { my_green, my_col,  col_gray2  },
+	[SchemeSel]  = { my_green, my_col,  my_green  },
+	//[SchemeSel]  = { my_green, my_col,  col_gray2  },
 };
 
 /* tagging */
@@ -35,7 +36,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
