@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3: ", "4: ", "5", "6", "7", "8", "9: " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,       1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 8,       0,      0,           -1 },
 	{ "XTerm",  NULL,       "helper_notes.sh",       0,       1,        1,           -1 },
+	{ "TelegramDesktop",  NULL,    NULL,       1 << 2,       1,        1,           -1 },
 };
 
 /* layout(s) */
@@ -45,12 +46,19 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+//static const Layout layouts[] = {
+//	/* symbol     arrange function */
+//	{ "[]=",      tile },    /* first entry is default */
+//	{ "><>",      NULL },    /* no layout function means floating behavior */
+//	{ "[M]",      monocle },
+//};
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "| T",      tile },    /* first entry is default */
+	{ "| F",      NULL },    /* no layout function means floating behavior */
+	{ "| M",      monocle },
 };
+
 
 /* key definitions */
 #define MODKEY Mod4Mask
