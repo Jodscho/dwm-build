@@ -10,8 +10,8 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 //static const int vertpad            = 10;       /* vertical padding of bar */
 //static const int sidepad            = 15;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Droid Sans Mono:size=14" };
-static const char dmenufont[]       = "Droid Sans Mono:size=14";
+static const char *fonts[]          = { "DejaVuSansMono-Bold:size=14" };
+static const char dmenufont[]       = "DejaVuSansMono-Bold:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	{ "firefox",  NULL,       NULL,       1 << 8,       0,      0,           -1 },
 	{ "XTerm",  NULL,       "helper_notes.sh",       0,       1,        1,           -1 },
 	{ "TelegramDesktop",  NULL,    NULL,       1 << 2,       1,        1,           -1 },
+	{ "Thunderbird",  NULL,    NULL,       1 << 3,       1,        1,           -1 },
 };
 
 /* layout(s) */
