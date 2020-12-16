@@ -1,9 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int user_bh            = 30;
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
@@ -17,17 +18,26 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char my_col[]          = "#1c1c1c";
-static const char my_green[]        = "#b5bd68";
+//static const char my_green[]        = "#b5bd68";
+static const char my_green[]        = "#e7bd92";
+static const char my_orange[]       = "#e18d30";
+
+
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
+	//[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
 	[SchemeSel]  = { my_green, my_col,  my_green  },
-	//[SchemeSel]  = { my_green, my_col,  col_gray2  },
+    [SchemeStatus]  = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+    [SchemeTagsSel]  = { col_gray4, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { my_orange, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3: ", "4: ", "5", "6", "7", "8", "9: " };
+static const char *tags[] = { "1", "2", "", "", "5", "6", "7", "8", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -55,9 +65,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 //};
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "| T",      tile },    /* first entry is default */
-	{ "| F",      NULL },    /* no layout function means floating behavior */
-	{ "| M",      monocle },
+	{ "| ",      tile },    /* first entry is default */
+	{ "| ",      NULL },    /* no layout function means floating behavior */
+	{ "| ",      monocle },
 };
 
 
@@ -77,6 +87,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "xterm", NULL };
 
+#include "movestack.c"
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -88,6 +100,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+    { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
