@@ -11,29 +11,45 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 //static const int vertpad            = 10;       /* vertical padding of bar */
 //static const int sidepad            = 15;       /* horizontal padding of bar */
-static const char *fonts[]          = { "DejaVuSansMono-Bold:size=14" };
-static const char dmenufont[]       = "DejaVuSansMono-Bold:size=14";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char my_col[]          = "#1c1c1c";
-//static const char my_green[]        = "#b5bd68";
-static const char my_green[]        = "#e7bd92";
-static const char my_orange[]       = "#e18d30";
+static const char *fonts[]          = { "DejaVuSansMono-Bold:size=12" };
+static const char dmenufont[]       = "DejaVuSansMono-Bold:size=12";
+//static const char bg[]       = "#222222";
+static const char col_bg[]       = "#222222";
+static const char col_border_active[]        = "#e7bd92";
+static const char col_fg[]       = "#e18d30";
 
+static const char color0[] = "#12101c";
+static const char color1[] = "#503989";
+static const char color2[] = "#6D52A1";
+static const char color3[] = "#7D66C0";
+static const char color4[] = "#9866A6";
+static const char color5[] = "#D37692";
+static const char color6[] = "#9375C5";
+static const char color7[] = "#ebc1cc";
+static const char color8[] = "#a4878e";
+static const char color9[] = "#503989";
+static const char color10[] = "#6D52A1";
+static const char color11[] = "#7D66C0";
+static const char color12[] = "#9866A6";
+static const char color13[] = "#D37692";
+static const char color14[] = "#9375C5";
+static const char color15[] = "#ebc1cc";
 
-static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	//[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-	[SchemeSel]  = { my_green, my_col,  my_green  },
-    [SchemeStatus]  = { "#ffffff", col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-    [SchemeTagsSel]  = { col_gray4, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { my_orange, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	//[SchemeNorm] = { col_gray3, col_bg, col_bg },
+	[SchemeNorm] = {color7, color0, color0 },
+	[SchemeSel]  = { color1, color0,  color1  },
+    [SchemeStatus]  = { color7, color0,  "#000000"  },
+    // Statusbar right {text,background,not used but cannot be empty}
+    [SchemeTagsSel]  = { color7, color0,  "#000000"  },
+    // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { color2, color0,  "#000000"  },
+    // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { color7, color0,  "#000000"  },
+    // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { color7, color0,  "#000000"  },
+    // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -66,7 +82,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "| ",      tile },    /* first entry is default */
-	{ "| ",      NULL },    /* no layout function means floating behavior */
+	{ "| ",      NULL },    /* no layout function means floating behavior */
 	{ "| ",      monocle },
 };
 
