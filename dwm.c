@@ -2335,10 +2335,54 @@ zoom(const Arg *arg)
 			return;
 	pop(c);
 }
+void
+load_colors(){
+	char ch;
+	FILE *fp;
+
+	fp = fopen(color_location, "r");
+
+	if (fp == NULL){
+		die("cannot load colors");
+	}
+
+	char buf[7];
+	int j = 0;
+	int i = 0;
+	while((ch = fgetc(fp)) != EOF){
+		if(ch == '\n') {
+			if(i == 0) strcpy(color0, buf);
+			else if(i == 1) strcpy(color1, buf);
+			else if(i == 2) strcpy(color2, buf);
+			else if(i == 3) strcpy(color3, buf);
+			else if(i == 4) strcpy(color4, buf);
+			else if(i == 5) strcpy(color5, buf);
+			else if(i == 6) strcpy(color6, buf);
+			else if(i == 7) strcpy(color7, buf);
+			else if(i == 8) strcpy(color8, buf);
+			else if(i == 9) strcpy(color9, buf);
+			else if(i == 10) strcpy(color10, buf);
+			else if(i == 11) strcpy(color11, buf);
+			else if(i == 12) strcpy(color12, buf);
+			else if(i == 13) strcpy(color13, buf);
+			else if(i == 14) strcpy(color14, buf);
+			else if(i == 15) strcpy(color15, buf);
+			i++;
+			j = 0;
+		} else {
+			buf[j] = ch;
+			j++;
+		}
+	}
+
+	fclose(fp);
+}
 
 int
 main(int argc, char *argv[])
 {
+	load_colors();
+
 	if (argc == 2 && !strcmp("-v", argv[1]))
 		die("dwm-"VERSION);
 	else if (argc != 1)

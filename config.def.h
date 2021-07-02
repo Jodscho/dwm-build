@@ -17,6 +17,7 @@ static const char dmenufont[]       = "DejaVuSansMono-Bold:size=10";
 static const char col_bg[]       = "#222222";
 static const char col_border_active[]        = "#e7bd92";
 static const char col_fg[]       = "#e18d30";
+static const char color_location[] = "/home/jonathan/.config/colors/colors";
 
 static char color0[] = "#151219";
 static char color1[] = "#675F58";
@@ -37,7 +38,6 @@ static char color15[] = "#c5c3bc";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	//[SchemeNorm] = { col_gray3, col_bg, col_bg },
 	[SchemeNorm] = {color7, color0, color0 },
 	[SchemeSel]  = { color1, color0,  color1  },
     [SchemeStatus]  = { color7, color0,  "#000000"  },
