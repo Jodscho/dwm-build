@@ -11,29 +11,29 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 //static const int vertpad            = 10;       /* vertical padding of bar */
 //static const int sidepad            = 15;       /* horizontal padding of bar */
-static const char *fonts[]          = { "DejaVuSansMono-Bold:size=12" };
-static const char dmenufont[]       = "DejaVuSansMono-Bold:size=12";
+static const char *fonts[]          = { "DejaVuSansMono-Bold:size=10" };
+static const char dmenufont[]       = "DejaVuSansMono-Bold:size=10";
 //static const char bg[]       = "#222222";
 static const char col_bg[]       = "#222222";
 static const char col_border_active[]        = "#e7bd92";
 static const char col_fg[]       = "#e18d30";
 
-static const char color0[] = "#12101c";
-static const char color1[] = "#503989";
-static const char color2[] = "#6D52A1";
-static const char color3[] = "#7D66C0";
-static const char color4[] = "#9866A6";
-static const char color5[] = "#D37692";
-static const char color6[] = "#9375C5";
-static const char color7[] = "#ebc1cc";
-static const char color8[] = "#a4878e";
-static const char color9[] = "#503989";
-static const char color10[] = "#6D52A1";
-static const char color11[] = "#7D66C0";
-static const char color12[] = "#9866A6";
-static const char color13[] = "#D37692";
-static const char color14[] = "#9375C5";
-static const char color15[] = "#ebc1cc";
+static char color0[] = "#151219";
+static char color1[] = "#675F58";
+static char color2[] = "#6E6F6C";
+static char color3[] = "#8A7565";
+static char color4[] = "#7D827E";
+static char color5[] = "#968A76";
+static char color6[] = "#C8A378";
+static char color7[] = "#c5c3bc";
+static char color8[] = "#898883";
+static char color9[] = "#675F58";
+static char color10[] = "#6E6F6C";
+static char color11[] = "#8A7565";
+static char color12[] = "#7D827E";
+static char color13[] = "#968A76";
+static char color14[] = "#C8A378";
+static char color15[] = "#c5c3bc";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -53,7 +53,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "", "", "5", "6", "7", "8", "" };
+static const char *tags[] = { "1", "2", "", "", "", "", "7", "8", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -63,9 +63,12 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,       1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 8,       0,      0,           -1 },
-	{ "XTerm",  NULL,       "helper_notes.sh",       0,       1,        1,           -1 },
+	{ "st-256color",  NULL,       "helper_notes.sh",       0,       1,        1,           -1 },
 	{ "TelegramDesktop",  NULL,    NULL,       1 << 2,       1,        1,           -1 },
+	{ "st-256color",  "st-256color",    "ranger",       1 << 5,       0,        0,           -1 },
 	{ "Thunderbird",  NULL,    NULL,       1 << 3,       1,        1,           -1 },
+	{ "st-256color",  "st-256color",    "cmus",       1 << 4,       1,        1,           -1 },
+	{ "flameshot",  "flameshot", NULL,       0,       0,        1,           -1 },
 };
 
 /* layout(s) */
@@ -101,7 +104,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "xterm", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 #include "movestack.c"
 
